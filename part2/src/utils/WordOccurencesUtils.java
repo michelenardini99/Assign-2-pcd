@@ -10,12 +10,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 
 public class WordOccurencesUtils {
 
     public static int countOccurrences(String text, String word) {
         int count = 0;
         int index = 0;
+        if(text == null) return count;
         while ((index = text.indexOf(word, index)) != -1) {
             count++;
             index += word.length();
@@ -53,6 +56,33 @@ public class WordOccurencesUtils {
             }
             return content.toString();
         }
+    }
+
+    public static List<String> generateURLs() {
+        // Lista di URL reali per esempio
+        List<String> urls = Arrays.asList(
+                "https://www.examples.com",
+                "https://www.wikipedia.org",
+                "https://www.google.com",
+                "https://www.ansa.it",
+                "https://www.adidas.it/",
+                "https://www.youtube.com/"
+
+        );
+        return urls;
+    }
+
+    public static List<String> generateWords() {
+        // Lista di URL reali per esempio
+        List<String> words = Arrays.asList(
+                "example",
+                "wiki",
+                "google",
+                "vita",
+                "uomo",
+                "video"
+        );
+        return words;
     }
 
 }

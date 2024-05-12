@@ -37,7 +37,6 @@ public class MasterAgent extends Thread {
 		List<CompletableFuture<Void>> futures = new ArrayList<>();
 		var simEnv = sim.getEnvironment();
 		var simAgents = sim.getAgents();
-
 		simEnv.init();
 		for (var a: simAgents) {
 			a.init(simEnv);

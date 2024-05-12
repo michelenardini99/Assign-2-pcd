@@ -26,6 +26,12 @@ public class RunTrafficSimulationMassiveTest {
         //[ SIMULATION ] Running the simulation: 5000 cars, for 100 steps ...
         //[ SIMULATION ] Completed in 38187 ms - average time per step: 381 ms
 
+        //Completed in 12577 ms
+        //time per steps: 118 ms
+        //cpu-usage: 70%
+        //thread-pool: 1 per il controller della gui
+        //thread-pool: 9 per i worker agent
+
         //Cuncurrent
         //Completed in 25155 ms - average time per step: 240 ms
 

@@ -1,35 +1,31 @@
 package event;
 
 import io.vertx.core.Vertx;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutionException;
+import io.vertx.core.http.HttpClient;
 
 public class Main {
 
+
+
     public static void main(String[] args){
         Vertx vertx = Vertx.vertx();
+        HttpClient client = vertx.createHttpClient();
 
-        String url = "https://example.com/";
-        String word = "example";
-        int depth = 1;
+        int numRequests = 500; // Numero di richieste da inviare
+        WordOccurences.setStartTime();
+        WordOccurences.setNumTask(numRequests);
 
-        Map<String, Integer> lastReport = new HashMap<>();
-
-        WordOccurences.getWordOccurrences(url, word, depth, vertx, report -> {
-            report.forEach( (link, occurences) -> {
-                if(!lastReport.containsKey(link)){
-                    lastReport.put(link, occurences);
-                    System.out.println("Link: " + link + " - Occurences: " + occurences);
-                }
-
+        for(int i=0; i<numRequests; i++){
+            WordOccurences.getWordOccurrences("https://www.example.com", "example", 1, vertx, report -> {
+                System.out.println(report.getStringLastEntry());
             });
-        });
+        }
 
-
-
-
+        //num request: 500
+        //avarage cpu-usage: 28.6%
+        //thread-event-loop: 15
+        //Tempo totale: 11428 millsecondi
+        //43 richieste/secondo
 
     }
 }

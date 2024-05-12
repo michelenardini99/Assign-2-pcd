@@ -1,6 +1,7 @@
 package gui;
 
 import simtraffic_conc_examples.TrafficSimulationSingleRoadMassiveNumberOfCars;
+import simtraffic_conc_examples.TrafficSimulationSingleRoadSeveralCars;
 import simtraffic_conc_examples.TrafficSimulationSingleRoadTwoCars;
 import simtraffic_conc_examples.TrafficSimulationWithCrossRoads;
 
@@ -17,8 +18,8 @@ public class RunTrafficSimulation {
 
 		int nWorkers = Runtime.getRuntime().availableProcessors() + 1;
 
-		var simulation = new TrafficSimulationSingleRoadTwoCars();
-		// var simulation = new TrafficSimulationSingleRoadSeveralCars();
+		//var simulation = new TrafficSimulationSingleRoadTwoCars();
+		var simulation = new TrafficSimulationSingleRoadSeveralCars();
 		// var simulation = new TrafficSimulationSingleRoadWithTrafficLightTwoCars();
 
 		

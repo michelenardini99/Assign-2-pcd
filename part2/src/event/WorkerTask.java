@@ -30,12 +30,7 @@ public class WorkerTask extends SwingWorker {
         lastReport = new HashMap<>();
         vertx = Vertx.vertx();
         WordOccurences.getWordOccurrences(url, word, depth, vertx, report -> {
-            report.forEach( (link, occurences) -> {
-                if(!lastReport.containsKey(link)){
-                    lastReport.put(link, occurences);
-                    outputArea.append("Link: " + link + " - Occurences: " + occurences + "\n");
-                }
-            });
+            outputArea.append(report.getStringLastEntry());
         });
         return lastReport;
     }
